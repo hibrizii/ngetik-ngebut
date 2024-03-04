@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nahwu Checker</title>
+    <style>
+      .jar {
+        background-color: rgba(241, 113, 113, 0.384);
+      }
+
+      .majrur {
+        background-color: rgba(84, 84, 236, 0.349);
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin: 50px auto; width: fit-content">
+      <p style="text-align: center">
+        Pengecek <span class="jar">jar</span> dan
+        <span class="majrur">majrur</span>
+      </p>
+      <input type="text" id="input-text" class="teks" />
+      <button id="btn">Check</button>
+      <div id="result"></div>
+    </div>
+    <script>
+      const teks = document.getElementById("input-text");
+      const btn = document.getElementById("btn");
+      const result = document.getElementById("result");
+
+      function harokahFilter(text) {
+        const separatedText = text.split("");
+        const harakah = /[ًٌٍَُِّْ]/;
+        const result = separatedText.map((e) => e.replace(harakah, ""));
+        return result.join("");
+      }
+
+      function isJar(text) {
+        const textArr = text.split(" ");
+        const hrfJar = ["على", "في", "عن", "إلى"];
+        const result = [];
+        let majrur = false;
+        textArr.forEach((e) => {
+          if (majrur == true && !hrfJar.includes(e)) {
+            result.push(`<span class="majrur">${e}</span>`);
+            majrur = false;
+            return;
+          }
+          if (hrfJar.includes(e)) {
+            result.push(`<span class="jar">${e}</span>`);
+            majrur = true;
+          } else {
+            result.push(e);
+          }
+        });
+        return result.join(" ");
+      }
+
+      btn.addEventListener("click", () => {
+        const textInput = teks.value;
+        const resultText = isJar(harokahFilter(textInput));
+        result.innerHTML = `
+        <p>
+            ${resultText}
+        </p>
+        `;
+      });
+    </script>
+  </body>
+</html>
