@@ -1,0 +1,17 @@
+.btn {
+  font-size: 17px;
+  padding: 2px;
+  margin: 5px auto;
+  width: fit-content;
+  border: 1px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.paragraph {
+  font-size: 25px;
+  border: 1px solid black;
+  width: 500px;
+  padding: 5px;
+  margin: 5px auto;
+}
