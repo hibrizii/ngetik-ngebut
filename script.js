@@ -6,6 +6,7 @@ const newHTML = words.map(
   (word) =>
     `<span class= "word">${word
       .split("")
+      .filter((e) => e !== "\n")
       .map((char) => `<span>${char}</span>`)
       .join("")}</span>`
 );
@@ -14,17 +15,17 @@ paragraph.innerHTML = newHTML
   .filter((e) => e != '<span class= "word"></span>')
   .join(" ");
 let wordsFinished = 0;
-let currentWord = 1;
+let currentWord = 0;
 let charCount = 0;
-let wordStatus = true;
+let falseCharInWordCount = 0;
 let falseWord = 0;
 let trueWord = 0;
-function generalFungsi(e) {
+
+function gamePlay(e) {
   if (e.code == "Space" && currentWord < paragraph.children.length - 1) {
-    wordsFinished++;
     if (
       charCount < paragraph.children[currentWord].children.length ||
-      wordStatus === false
+      falseCharInWordCount > 0
     ) {
       Array.from(paragraph.children[currentWord].children).forEach(
         (char) => (char.style.color = "red")
@@ -33,11 +34,12 @@ function generalFungsi(e) {
     } else {
       trueWord++;
     }
-    wordStatus = true; // wordStatus diubah menjadi true sebelum berpindah ke word selanjutnya
+    falseCharInWordCount = 0; // falseCharInWordCount dijadikan 0 sbelum masuk word selanjutnya
     paragraph.children[currentWord].style.backgroundColor = `transparent`;
     charCount = 0;
-    currentWord++;
-    // ^^^ counter (current word) berpindah ke selanjutnya
+    wordsFinished++;
+    currentWord++; // counter (current word) berpindah ke selanjutnya
+    console.log(paragraph.children[currentWord].children.length);
     Array.from(paragraph.children[currentWord].children).forEach(
       (char) => (char.style.color = "white")
     );
@@ -48,20 +50,35 @@ function generalFungsi(e) {
   ) {
     wordsFinished++;
     gameResult();
-  }
-  if (
-    e.code != "Space" &&
+  } else if (
+    e.key != "Space" &&
     charCount < paragraph.children[currentWord].children.length
   ) {
     let currentChar =
       paragraph.children[currentWord].children[charCount].innerText;
-    if (e.key === currentChar) {
-      paragraph.children[currentWord].children[charCount].style.color = "black";
+    if (e.code === "Backspace") {
+      charCount--;
+      const hurufSekarang = paragraph.children[currentWord].children[charCount];
+      if (hurufSekarang.style.color === "red") falseCharInWordCount--;
+      hurufSekarang.style.color = "white";
+    } else if (e.key === currentChar) {
+      paragraph.children[currentWord].children[charCount].style.color = "blue";
+      charCount++;
     } else {
       paragraph.children[currentWord].children[charCount].style.color = "red";
-      wordStatus = false;
+      falseCharInWordCount++;
+      charCount++;
     }
-    charCount++;
+    console.log(falseCharInWordCount);
+  }
+}
+
+function eraser(e) {
+  if (e.code === "Backspace") {
+    charCount--;
+    const hurufSekarang = paragraph.children[currentWord].children[charCount];
+    if (hurufSekarang.style.color === "red") falseCharInWordCount--;
+    hurufSekarang.style.color = "white";
   }
 }
 
@@ -74,15 +91,15 @@ function gameResult() {
 }
 
 const ketik = (event) => {
-  generalFungsi(event);
+  gamePlay(event);
 };
 
 document.addEventListener("keydown", ketik);
 
 function restartBtn() {
-  currentWord = 1;
+  currentWord = 0;
   charCount = 0;
-  wordStatus = false;
+  falseCharInWordCount = 0;
   falseWord = 0;
   trueWord = 0;
   Array.from(paragraph.children).forEach((word) => {
@@ -97,7 +114,7 @@ function restartBtn() {
   paragraph.children[currentWord].style.backgroundColor = "yellow";
 }
 
-let hitungMundur = 11;
+let hitungMundur = 111;
 let track = 1;
 
 function coba() {
