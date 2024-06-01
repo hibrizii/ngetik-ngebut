@@ -53,17 +53,12 @@ function gamePlay(e) {
     );
     paragraph.children[currentWord].style.backgroundColor = "yellow";
   } else if (
-    e.key != "Space" &&
+    e.key.length < 2 &&
     charCount < paragraph.children[currentWord].children.length
   ) {
     let currentChar =
       paragraph.children[currentWord].children[charCount].innerText;
-    if (e.code === "Backspace") {
-      charCount--;
-      const hurufSekarang = paragraph.children[currentWord].children[charCount];
-      if (hurufSekarang.style.color === "red") falseCharInWordCount--;
-      hurufSekarang.style.color = "white";
-    } else if (e.key === currentChar) {
+    if (e.key === currentChar) {
       paragraph.children[currentWord].children[charCount].style.color = "blue";
       charCount++;
     } else {
@@ -71,17 +66,20 @@ function gamePlay(e) {
       falseCharInWordCount++;
       charCount++;
     }
+  } else if (e.key === "Backspace") {
+    eraser();
   }
 }
 
-// function eraser(e) {
-//   if (e.code === "Backspace") {
-//     charCount--;
-//     const hurufSekarang = paragraph.children[currentWord].children[charCount];
-//     if (hurufSekarang.style.color === "red") falseCharInWordCount--;
-//     hurufSekarang.style.color = "white";
-//   }
-// }
+function eraser() {
+  if (charCount == 0) {
+    return;
+  }
+  charCount--;
+  const hurufSekarang = paragraph.children[currentWord].children[charCount];
+  if (hurufSekarang.style.color === "red") falseCharInWordCount--;
+  hurufSekarang.style.color = "white";
+}
 
 function gameResult() {
   alert(`
