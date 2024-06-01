@@ -1,0 +1,76 @@
+style.css body {
+  font-family: "Source Code Pro", monospace;
+  background-color: #272822;
+  color: #f8f8f2;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  width: 350px;
+  justify-content: space-evenly;
+  text-align: center;
+  display: flex;
+  margin: 40px auto;
+}
+
+img {
+  width: 60px;
+  filter: drop-shadow(0 0 10px #66d9ef);
+}
+
+h1 {
+  font-size: 2em;
+  margin: 10px 0;
+  color: #66d9ef;
+  text-shadow: 0 0 5px #66d9ef;
+}
+
+.ctr {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  background-color: #66d9ef;
+  color: #272822;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #a6e22e;
+  box-shadow: 0 0 10px #a6e22e;
+}
+
+/* Simulasi Mengetik */
+.paragraph {
+  font-family: "Source Code Pro", monospace;
+  width: 60%;
+  font-size: 1.2em;
+  line-height: 1.6;
+  background-color: #bebeb9;
+  color: #f8f8f2;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left; /* Paragraf rata kiri */
+}
+
+.paragraph::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
