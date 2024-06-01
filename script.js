@@ -10,7 +10,6 @@ const newHTML = words.map(
       .map((char) => `<span>${char}</span>`)
       .join("")}</span>`
 );
-console.log(newHTML);
 paragraph.innerHTML = newHTML
   .filter((e) => e != '<span class= "word"></span>')
   .join(" ");
@@ -21,35 +20,38 @@ let falseCharInWordCount = 0;
 let falseWord = 0;
 let trueWord = 0;
 
+function wordValidator() {
+  if (
+    charCount < paragraph.children[currentWord].children.length ||
+    falseCharInWordCount > 0
+  ) {
+    Array.from(paragraph.children[currentWord].children).forEach(
+      (char) => (char.style.color = "red")
+    );
+    falseWord++;
+  } else {
+    trueWord++;
+  }
+}
+
 function gamePlay(e) {
-  if (e.code == "Space" && currentWord < paragraph.children.length - 1) {
-    if (
-      charCount < paragraph.children[currentWord].children.length ||
-      falseCharInWordCount > 0
-    ) {
-      Array.from(paragraph.children[currentWord].children).forEach(
-        (char) => (char.style.color = "red")
-      );
-      falseWord++;
-    } else {
-      trueWord++;
-    }
+  if (e.code == "Space") {
+    wordValidator();
     falseCharInWordCount = 0; // falseCharInWordCount dijadikan 0 sbelum masuk word selanjutnya
     paragraph.children[currentWord].style.backgroundColor = `transparent`;
     charCount = 0;
     wordsFinished++;
     currentWord++; // counter (current word) berpindah ke selanjutnya
-    console.log(paragraph.children[currentWord].children.length);
+    // Pengkondisian jika kata sudah habis, maka function gameResult akan dijalankan dan function gamePlay dihentikan
+    if (currentWord >= paragraph.children.length) {
+      gameResult();
+      return;
+    }
+    //====MASUK KE WORD SELANJUTNYA=====
     Array.from(paragraph.children[currentWord].children).forEach(
       (char) => (char.style.color = "white")
     );
     paragraph.children[currentWord].style.backgroundColor = "yellow";
-  } else if (
-    e.code == "Space" &&
-    currentWord >= paragraph.children.length - 1
-  ) {
-    wordsFinished++;
-    gameResult();
   } else if (
     e.key != "Space" &&
     charCount < paragraph.children[currentWord].children.length
@@ -69,18 +71,17 @@ function gamePlay(e) {
       falseCharInWordCount++;
       charCount++;
     }
-    console.log(falseCharInWordCount);
   }
 }
 
-function eraser(e) {
-  if (e.code === "Backspace") {
-    charCount--;
-    const hurufSekarang = paragraph.children[currentWord].children[charCount];
-    if (hurufSekarang.style.color === "red") falseCharInWordCount--;
-    hurufSekarang.style.color = "white";
-  }
-}
+// function eraser(e) {
+//   if (e.code === "Backspace") {
+//     charCount--;
+//     const hurufSekarang = paragraph.children[currentWord].children[charCount];
+//     if (hurufSekarang.style.color === "red") falseCharInWordCount--;
+//     hurufSekarang.style.color = "white";
+//   }
+// }
 
 function gameResult() {
   alert(`
