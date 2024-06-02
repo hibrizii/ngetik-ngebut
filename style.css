@@ -52,7 +52,7 @@ h1 {
 .btn {
   background: #00e676;
   color: #1a1a1a;
-  border: none;
+  border: 1px solid #00e676;
   padding: 12px 25px;
   border-radius: 5px;
   font-size: 1.1em;
@@ -62,7 +62,7 @@ h1 {
 
 .btn:hover {
   background: #00c85d;
-  transform: scale(0.95);
+  transform: scale(1.05);
 }
 
 .paragraph {
@@ -81,6 +81,61 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+/* Style untuk dialog hasil */
+#result-dialog {
+  background: linear-gradient(
+    135deg,
+    #222,
+    #444
+  ); /* Gradien yang sama dengan elemen lainnya */
+  border: none;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(10px); /* Efek blur pada dialog */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Bayangan */
+  font-size: 1.2em;
+}
+
+#result-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8); /* Latar belakang lebih gelap */
+}
+
+.result-text {
+  color: #f0f0f0; /* Warna teks yang sama dengan body */
+  margin-bottom: 20px;
+}
+
+#result-dialog .btn {
+  font-size: 0.9em;
+  margin: 5px 25px;
+}
+
+.btn.wpm-info {
+  background-color: transparent;
+  color: #f0f0f0;
+  border: 0.1px solid #f0f0f0;
+  box-sizing: content-box;
+}
+
+.btn.wpm-info:hover {
+  text-shadow: 0 0px 5px #949494;
+  box-shadow: 0 0px 5px #949494;
+  transform: none;
+}
+
+/* Penyesuaian untuk ukuran layar kecil */
+@media (max-width: 600px) {
+  #result-dialog {
+    padding: 20px;
+  }
+
+  #result-dialog .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 600px) {
