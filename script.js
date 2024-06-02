@@ -53,7 +53,7 @@ function gamePlay(e) {
     Array.from(paragraph.children[currentWord].children).forEach(
       (char) => (char.style.color = "white")
     );
-    paragraph.children[currentWord].style.backgroundColor = "#00e676";
+    paragraph.children[currentWord].style.backgroundColor = "#008846";
   } else if (
     e.key.length < 2 &&
     charCount < paragraph.children[currentWord].children.length
@@ -73,9 +73,7 @@ function gamePlay(e) {
 }
 
 function eraser() {
-  if (charCount == 0) {
-    return;
-  }
+  if (charCount == 0) return;
   charCount--;
   const hurufSekarang = paragraph.children[currentWord].children[charCount];
   if (hurufSekarang.style.color === "red") falseCharInWordCount--;
@@ -84,9 +82,12 @@ function eraser() {
 
 function gameResult() {
   alert(`
-        Jumlah kata yang terselesaikan: ${wordsFinished} huruf
-        Kata yang benar: ${trueWord} huruf
-        Kata yang salah: ${falseWord} huruf
+        Kecepatan Ngetikmu: ${trueWord} WPM!
+        (WPM: Words per Minutes)
+
+        Jumlah kata yang terselesaikan: ${wordsFinished} kata
+        Kata yang benar: ${trueWord} kata
+        Kata yang salah: ${falseWord} kata
         `);
 }
 
@@ -94,30 +95,32 @@ const ketik = (event) => {
   gamePlay(event);
 };
 
-// function restartBtn() {
-//   currentWord = 0;
-//   charCount = 0;
-//   falseCharInWordCount = 0;
-//   falseWord = 0;
-//   trueWord = 0;
-//   Array.from(paragraph.children).forEach((word) => {
-//     word.style.backgroundColor = "transparent";
-//     Array.from(word.children).forEach((char) => {
-//       char.style.color = "black";
-//     });
-//   });
-//   Array.from(paragraph.children[currentWord].children).forEach(
-//     (char) => (char.style.color = "white")
-//   );
-//   paragraph.children[currentWord].style.backgroundColor = "#00e676";
-//   document.addEventListener("keydown", ketik);
-//   intervalId = setInterval(coba, 1000);
-// }
+function restartBtn() {
+  clearInterval(intervalId);
+  wordsFinished = 0;
+  hitungMundur = 60;
+  currentWord = 0;
+  charCount = 0;
+  falseCharInWordCount = 0;
+  falseWord = 0;
+  trueWord = 0;
+  Array.from(paragraph.children).forEach((word) => {
+    word.style.backgroundColor = "transparent";
+    Array.from(word.children).forEach((char) => {
+      char.style.color = "white";
+    });
+  });
+  Array.from(paragraph.children[currentWord].children).forEach(
+    (char) => (char.style.color = "white")
+  );
+  document.addEventListener("keydown", ketik);
+  starto();
+}
 
 let hitungMundur = 60;
 let intervalId;
 
-function starto() {
+function intervalLogic() {
   if (hitungMundur > 0) {
     hitungMundur--;
     detik.innerText = hitungMundur;
@@ -128,20 +131,15 @@ function starto() {
   }
 }
 
-btn.addEventListener("click", () => {
-  btn.innerText = "Restart";
+function starto() {
+  paragraph.children[currentWord].style.backgroundColor = "#008846";
+  Array.from(paragraph.children[currentWord].children).forEach(
+    (char) => (char.style.color = "white")
+  );
+  detik.innerText = hitungMundur;
   document.addEventListener("keydown", ketik);
-  intervalId = setInterval(starto, 1000);
-});
-
-// btn.addEventListener( "click", () => {
-//     restartBtn();
-//     paragraph.children[currentWord].style.backgroundColor = "#00e676";
-//     paragraph.children[currentWord].style.color = "white";
-//     btn.innerText = "Restart";
-//     generalPlay;
-// })
-paragraph.children[currentWord].style.backgroundColor = "#00e676";
-Array.from(paragraph.children[currentWord].children).forEach(
-  (char) => (char.style.color = "white")
-);
+  intervalId = setInterval(intervalLogic, 1000);
+  btn.innerText = "Restart";
+  btn.onclick = restartBtn;
+}
+btn.onclick = starto;
