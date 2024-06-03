@@ -8,35 +8,64 @@
     <link href="/style.css" rel="stylesheet" />
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img src="img/logofix.png" alt="logo" />
+    <section id="main-sec" class="main">
+      <header>
+        <div class="logo">
+          <img src="img/logofix.png" alt="logo" />
+        </div>
+        <h1 class="nama-website"><span>ngetik</span>cepat.com</h1>
+      </header>
+      <div class="paragraph">
+        di sebuah desa kecil tinggallah seorang anak laki laki bernama budi ia
+        sangat suka bermain di kebun bersama teman temannya suatu hari budi
+        menemukan seekor anak kucing yang terlantar ia membawa kucing itu pulang
+        dan merawatnya setiap hari kucing itu diberi nama mimi budi dan mimi
+        menjadi teman baik mereka selalu bermain bersama budi sangat sayang pada
+        mimi dan berjanji akan selalu merawatnya dengan baik demikianlah
+        kehidupan budi dan mimi di desa kecil mereka
       </div>
-      <h1 class="nama-website"><span>ngetik</span>cepat.com</h1>
-    </header>
-    <div class="paragraph">
-      di sebuah desa kecil tinggallah seorang anak laki laki bernama budi ia
-      sangat suka bermain di kebun bersama teman temannya suatu hari budi
-      menemukan seekor anak kucing yang terlantar ia membawa kucing itu pulang
-      dan merawatnya setiap hari kucing itu diberi nama mimi budi dan mimi
-      menjadi teman baik mereka selalu bermain bersama budi sangat sayang pada
-      mimi dan berjanji akan selalu merawatnya dengan baik demikianlah kehidupan
-      budi dan mimi di desa kecil mereka
-    </div>
-    <footer>
-      <button class="btn ctr">Start</button>
-      <div class="ctr">TIME: <span class="time">00</span></div>
-    </footer>
-    <dialog id="result-dialog">
-      <p class="result-text">
-        Kecepatan Ngetikmu: ${trueWord} WPM! <br />
-        <br />
-        Sepertinya Kamu musti latihan lebih sering lagi <br />
-        biar tambah ngebut ngetiknya.
-      </p>
-      <button class="btn">OKE</button>
-      <button class="btn wpm-info">apa itu WPM?</button>
-    </dialog>
+      <div class="btn-time-container">
+        <button class="btn ctr">Start</button>
+        <div class="ctr">TIME: <span class="time">00</span></div>
+      </div>
+      <dialog id="result-dialog">
+        <p class="result-text">
+          Kecepatan Ngetikmu: ${trueWord} WPM! <br />
+          Sepertinya Kamu musti latihan lebih sering lagi <br />
+          biar tambah ngebut ngetiknya.
+        </p>
+        <button class="btn">OKE</button>
+        <a href="#abt-wpm" class="btn wpm-info">apa itu WPM?</a>
+      </dialog>
+    </section>
+    <section id="abt-wpm" class="about-wpm ss">
+      <h1 class="article-title">WPM <span>(Words per Minutes)</span></h1>
+      <article>
+        <p>
+          WPM, singkatan dari "words per minute" atau kata per menit, adalah
+          satuan ukuran yang umum digunakan untuk mengukur kecepatan mengetik.
+          Satuan ini menunjukkan jumlah kata yang dapat diproses dalam satu
+          menit.
+        </p>
+
+        <h2>Kategori:</h2>
+
+        <h3>10-20 WPM:</h3>
+        Si Santuy Masih nyari-nyari huruf di keyboard? Santai aja, bro! Semua
+        orang pasti mulai dari nol. Terus gas latihan biar makin GG.
+        <h3>21-40 WPM:</h3>
+        Si Standar Ini kecepatan standar kebanyakan orang. Nggak terlalu lemot,
+        nggak terlalu ngebut. Cukup lah buat ngetik tugas atau chatingan.
+        <h3>41-60 WPM:</h3>
+        Si Gesit Nah, kalau udah di level ini, jari-jarimu udah mulai lincah
+        nih. Ngetik tugas atau email pasti cepet kelarnya. Keren!
+        <h3>61-80 WPM:</h3>
+        Si Pro Ini levelnya para pro player. Kecepatan ngetiknya udah kayak
+        kesurupan setan ngebut! Biasanya yang kerjaannya banyak ngetik, kayak
+        content creator atau penulis, ada di level ini.
+      </article>
+    </section>
     <script src="script.js"></script>
+    <script src="ui.js"></script>
   </body>
 </html>

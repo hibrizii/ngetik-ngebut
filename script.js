@@ -59,10 +59,11 @@ const arrayHTML = words.map(
 const newHTML = paragraphChunks(arrayHTML);
 paragraph.innerHTML = newHTML[paragraphCount].join(" ");
 
-resultDialog.children[1].addEventListener("click", (e) => {
-  e.preventDefault();
-  resultDialog.close();
-});
+Array.from(resultDialog.children).forEach((e) =>
+  e.addEventListener("click", () => {
+    resultDialog.close();
+  })
+);
 
 function paragraphChunks(arr, chunkLength = 20) {
   const subArrays = [];
@@ -154,6 +155,12 @@ function eraser() {
   hurufSekarang.style.color = "white";
 }
 
+function estimatingWPM() {
+  const multiplier = Math.round(60 / (60 - hitungMundur));
+  const result = trueWord * multiplier;
+  return result;
+}
+
 function gameResult() {
   const { message, color } = getTypingSpeedMessage(trueWord);
   resultDialog.children[0].innerHTML = `
@@ -190,6 +197,8 @@ let intervalId;
 
 function intervalLogic() {
   if (hitungMundur > 0) {
+    const estimatedWPM = estimatingWPM();
+    console.log(estimatedWPM);
     hitungMundur--;
     detik.innerText = hitungMundur;
   } else {
