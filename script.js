@@ -11,6 +11,40 @@ let falseWord = 0;
 let trueWord = 0;
 let paragraphCount = 0;
 
+const typingSpeedMessages = {
+  slow: {
+    minWPM: 0,
+    maxWPM: 15,
+    message:
+      "Lambat banget?!!, mungkin ngetik bukan passionmu deh. </br> kamu cocoknya joget aja! Oke gass oke gass",
+    color: "red",
+  },
+  beginner: {
+    minWPM: 16,
+    maxWPM: 30,
+    message:
+      "Sepertinya Kamu musti latihan lebih sering lagi <br/> biar tambah ngebut ngetiknya.",
+    color: "yellow",
+  },
+  average: {
+    minWPM: 31,
+    maxWPM: 45,
+    message: "Kecepatan rata-rata, cukup lumayan.",
+    color: "#008846",
+  },
+  fast: {
+    minWPM: 46,
+    maxWPM: 60,
+    message: "Wah, cepat juga! Jari-jarimu lincah!",
+    color: "#008846",
+  },
+  pro: {
+    minWPM: 61,
+    maxWPM: Infinity,
+    message: "Ngetikmu secepat kilat! Profesional sejati!",
+  },
+};
+
 const arrayHTML = words.map(
   (word) =>
     `<span class= "word">${word
@@ -51,9 +85,17 @@ function wordValidator() {
   }
 }
 
+function getTypingSpeedMessage(wpm) {
+  for (const level in typingSpeedMessages) {
+    const { minWPM, maxWPM, message, color } = typingSpeedMessages[level];
+    if (wpm >= minWPM && wpm <= maxWPM) {
+      return { message, color };
+    }
+  }
+}
+
 function gamePlay(e) {
   if (e.code == "Space") {
-    if (paragraphCount >= newHTML.length) return;
     e.preventDefault();
     wordValidator();
     falseCharInWordCount = 0; // falseCharInWordCount dijadikan 0 sbelum masuk word selanjutnya
@@ -61,13 +103,14 @@ function gamePlay(e) {
     charCount = 0;
     wordsFinished++;
     currentWord++; // counter (current word) berpindah ke selanjutnya
-    // Pengkondisian jika kata sudah habis, maka function gameResult akan dijalankan dan function gamePlay dihentikan
+    // Pengkondisian jika paragraph sekarang sudah habis, akan diupdate ke paragraph selanjutnya
     if (currentWord >= paragraph.children.length) {
       console.log(paragraphCount);
-      paragraph.innerHTML = newHTML[paragraphCount].join(" ");
-      currentWord = 0;
-      updateParagraph();
       paragraphCount++;
+      if (paragraphCount >= newHTML.length) paragraphCount = 0;
+      currentWord = 0;
+      paragraph.innerHTML = newHTML[paragraphCount].join(" ");
+      updateParagraph();
     }
     //====MASUK KE WORD SELANJUTNYA=====
     Array.from(paragraph.children[currentWord].children).forEach(
@@ -110,12 +153,11 @@ function eraser() {
 }
 
 function gameResult() {
-  resultDialog.children[0].innerText = `
-        Kecepatan Ngetikmu: ${trueWord} WPM!
-        (WPM: Words per Minutes)
-
-        Sepertinya Kamu musti latihan lebih sering lagi deh...
-        biar tambah ngebut ngetiknya.
+  const { message, color } = getTypingSpeedMessage(trueWord);
+  resultDialog.children[0].innerHTML = `
+        Kecepatan ngetikmu:
+        <h1 class="wpm-result" style="color: ${color};">${trueWord} WPM</h1>
+        <p>${message}</p>
         `;
   resultDialog.showModal();
 }
@@ -140,7 +182,7 @@ function restartBtn() {
   starto();
 }
 
-let hitungMundur = 60;
+let hitungMundur = 3;
 let intervalId;
 
 function intervalLogic() {
