@@ -1,7 +1,9 @@
 body {
   margin: 0;
   font-family: "Source Code Pro", monospace;
-  background-color: #1a1a1a;
+  background-color: #1b1b1b;
+  background-image: url(img/pattern.png);
+  background-repeat: repeat;
   color: #f0f0f0;
   display: flex;
   flex-direction: column;
@@ -24,8 +26,8 @@ header {
 }
 
 .logo img {
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   margin-right: 10px;
   box-shadow: inset 0px 0px 20px 1px white;
   border-radius: 50%;
@@ -36,6 +38,15 @@ h1 {
   color: #00e676;
   /* background-color: #008846;; */
   text-shadow: 0 0 5px #00e676;
+}
+
+h1.nama-website {
+  font-style: italic;
+}
+
+h1 span {
+  color: #ffffff;
+  text-shadow: 0 0 5px #ffffff;
 }
 
 .ctr {
@@ -69,7 +80,7 @@ h1 {
   width: 50%;
   font-size: 1.2em;
   line-height: 1.6;
-  background: linear-gradient(135deg, #808080, #adada9);
+  background: linear-gradient(135deg, #808080, #969694);
   color: #f8f8f2;
   padding: 20px;
   border-radius: 5px;

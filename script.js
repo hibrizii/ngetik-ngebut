@@ -41,7 +41,9 @@ const typingSpeedMessages = {
   pro: {
     minWPM: 61,
     maxWPM: Infinity,
-    message: "Ngetikmu secepat kilat! Profesional sejati!",
+    message:
+      "Ngebut banget busett! Lu olang bukan manusia ya! </br> btw keren sihh!!",
+    color: "#008846",
   },
 };
 
@@ -169,7 +171,7 @@ const ketik = (event) => {
 function restartBtn() {
   clearInterval(intervalId);
   wordsFinished = 0;
-  hitungMundur = 10;
+  hitungMundur = 60;
   currentWord = 0;
   charCount = 0;
   falseCharInWordCount = 0;
@@ -178,11 +180,12 @@ function restartBtn() {
   paragraphCount = 0;
   paragraph.innerHTML = newHTML[paragraphCount].join(" ");
   updateParagraph();
-  document.addEventListener("keydown", ketik);
-  starto();
+  detik.innerText = 60;
+  btn.innerText = "Start";
+  btn.onclick = starto;
 }
 
-let hitungMundur = 3;
+let hitungMundur = 1;
 let intervalId;
 
 function intervalLogic() {
@@ -204,7 +207,7 @@ function starto() {
   detik.innerText = hitungMundur;
   document.addEventListener("keydown", ketik);
   intervalId = setInterval(intervalLogic, 1000);
-  btn.innerText = "Restart";
+  btn.innerText = "Reset";
   btn.onclick = restartBtn;
 }
 
