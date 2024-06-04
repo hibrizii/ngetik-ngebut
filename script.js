@@ -185,6 +185,7 @@ const ketik = (event) => {
 
 function restartBtn() {
   clearInterval(intervalId);
+  document.removeEventListener("keydown", ketik);
   wordsFinished = 0;
   hitungMundur = 60;
   currentWord = 0;
