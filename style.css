@@ -53,7 +53,8 @@ h1 {
 
 .paragraph {
   margin: 7em auto 5px;
-  width: 50%;
+  width: 52%;
+  box-sizing: border-box;
   font-size: 1.2em;
   line-height: 1.6;
   background: linear-gradient(135deg, #808080, #969694);
@@ -64,23 +65,39 @@ h1 {
 }
 
 div.btn-time-container {
-  margin: 5px auto;
-  width: clamp(222.797px, 248px, 250px);
+  margin: 2px auto;
+  width: 52%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.time-wpm-ctr {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  .ctr {
+    color: #f8f8f2;
+    margin: 0;
+    box-shadow: none;
+  }
+  .display-est-wpm {
+    margin-top: 3px;
+    cursor: help;
+  }
 }
 
 .ctr {
   background: linear-gradient(135deg, #222, #444);
   font-size: 1.1rem;
   text-align: center;
-  margin: 10px 5px;
+  margin: 2px 0px;
   padding: 0.8rem 1.1rem;
-  border-radius: 8px;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
 }
 
 .btn {

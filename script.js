@@ -3,6 +3,7 @@ const paragraph = document.querySelector(".paragraph");
 const words = paragraph.innerHTML.split(" ");
 const detik = document.querySelector(".time");
 const resultDialog = document.querySelector("dialog#result-dialog");
+const wpmEstDisplay = document.querySelector(".wpm-est");
 let wordsFinished = 0;
 let currentWord = 0;
 let charCount = 0;
@@ -10,6 +11,8 @@ let falseCharInWordCount = 0;
 let falseWord = 0;
 let trueWord = 0;
 let paragraphCount = 0;
+let hitungMundur = 60;
+let intervalId;
 
 const typingSpeedMessages = {
   slow: {
@@ -157,12 +160,17 @@ function eraser() {
 
 function estimatingWPM() {
   const multiplier = Math.round(60 / (60 - hitungMundur));
-  const result = trueWord * multiplier;
-  return result;
+  const finiteNum = isFinite(multiplier) ? multiplier : 1;
+  const result = trueWord * finiteNum;
+  const { color } = getTypingSpeedMessage(result);
+  wpmEstDisplay.innerText = result;
+  wpmEstDisplay.parentElement.style.color = `${color}`;
 }
 
 function gameResult() {
   const { message, color } = getTypingSpeedMessage(trueWord);
+  wpmEstDisplay.innerText = trueWord;
+  wpmEstDisplay.parentElement.style.color = `${color}`;
   resultDialog.children[0].innerHTML = `
         Kecepatan ngetikmu:
         <h1 class="wpm-result" style="color: ${color};">${trueWord} WPM</h1>
@@ -187,19 +195,17 @@ function restartBtn() {
   paragraphCount = 0;
   paragraph.innerHTML = newHTML[paragraphCount].join(" ");
   updateParagraph();
+  wpmEstDisplay.innerText = 0;
+  wpmEstDisplay.parentElement.style.color = "#f8f8f2";
   detik.innerText = 60;
   btn.innerText = "Start";
   btn.onclick = starto;
 }
 
-let hitungMundur = 1;
-let intervalId;
-
 function intervalLogic() {
   if (hitungMundur > 0) {
-    const estimatedWPM = estimatingWPM();
-    console.log(estimatedWPM);
     hitungMundur--;
+    if (hitungMundur % 2 == 0) estimatingWPM();
     detik.innerText = hitungMundur;
   } else {
     clearInterval(intervalId);
