@@ -1,0 +1,226 @@
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: #1b1b1b;
+  background-image: url(img/pattern.png);
+  background-repeat: repeat;
+  color: #f0f0f0;
+}
+
+section.main {
+  height: 100vh;
+}
+
+header {
+  margin: 2em auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 30%;
+  border-radius: 15px;
+  z-index: 999;
+  font-size: 1rem;
+  .logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    box-shadow: inset 0px 0px 20px 1px white;
+    border-radius: 50%;
+  }
+  h1.nama-website {
+    font-style: italic;
+    span {
+      color: #ffffff;
+      text-shadow: 0 0 5px #ffffff;
+    }
+  }
+}
+
+h1 {
+  color: #00e676;
+  /* background-color: #008846;; */
+  text-shadow: 0 0 5px #00e676;
+}
+
+.paragraph {
+  margin: 7em auto 5px;
+  width: 52%;
+  box-sizing: border-box;
+  font-size: 1.2em;
+  line-height: 1.6;
+  background: linear-gradient(135deg, #808080, #969694);
+  color: #f8f8f2;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left; /* Paragraf rata kiri */
+}
+
+div.btn-time-container {
+  margin: 2px auto;
+  width: 52%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.time-wpm-ctr {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  .ctr {
+    color: #f8f8f2;
+    margin: 0;
+    box-shadow: none;
+  }
+  .display-est-wpm {
+    margin-top: 3px;
+    cursor: help;
+  }
+}
+
+.ctr {
+  background: linear-gradient(135deg, #222, #444);
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 2px 0px;
+  padding: 0.8rem 1.1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.btn {
+  background: #00e676;
+  color: #1a1a1a;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #00c85d;
+  transform: scale(1.05);
+}
+
+/* Style untuk dialog hasil */
+#result-dialog {
+  background: linear-gradient(
+    135deg,
+    #222,
+    #444
+  ); /* Gradien yang sama dengan elemen lainnya */
+  border: none;
+  border-radius: 10px;
+  padding: 3rem;
+  text-align: center;
+  backdrop-filter: blur(10px); /* Efek blur pada dialog */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Bayangan */
+  font-size: 1.2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#result-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.8); /* Latar belakang lebih gelap */
+}
+
+.result-text {
+  color: #f0f0f0; /* Warna teks yang sama dengan body */
+  margin-bottom: 20px;
+}
+
+h1.wpm-result {
+  text-shadow: 0 0 5px #0f0f0fc7;
+  font-size: 2.2em;
+  margin: 5px auto;
+}
+
+#result-dialog .btn {
+  font-size: 0.9em;
+  margin: 5px 15px;
+}
+
+.btn.wpm-info {
+  background-color: transparent;
+  color: #f0f0f0;
+  border: 0.1px solid #f0f0f0;
+  box-sizing: content-box;
+  text-decoration: none;
+}
+
+.btn.wpm-info:hover {
+  text-shadow: 0 0px 5px #949494;
+  box-shadow: 0 0px 5px #949494;
+  transform: none;
+}
+
+section.about-wpm {
+  height: 100vh;
+  padding: 5rem;
+  box-sizing: border-box;
+  filter: opacity(0.6);
+}
+
+.article-title {
+  text-shadow: none;
+}
+
+.article-title span {
+  color: #ffffff;
+  text-shadow: none;
+}
+
+article {
+  font-size: 1.1em;
+  width: 90%;
+  line-height: 1.3;
+  p {
+    margin: 0.5em 0;
+  }
+  h3 {
+    color: #00e676;
+    margin: 0.5em 0;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  #result-dialog {
+    padding: 20px;
+  }
+
+  #result-dialog .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .ctr,
+  .btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  .paragraph,
+  article {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}

@@ -118,7 +118,7 @@ function gamePlay(e) {
       paragraph.innerHTML = newHTML[paragraphCount].join(" ");
       updateParagraph();
     }
-    //====MASUK KE WORD SELANJUTNYA=====
+    //====MASUK KE WORD SELANJUTNYA======
     Array.from(paragraph.children[currentWord].children).forEach(
       (char) => (char.style.color = "white")
     );
