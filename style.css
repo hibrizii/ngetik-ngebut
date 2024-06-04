@@ -54,7 +54,7 @@ h1 {
 
 .paragraph {
   margin: 7em auto 5px;
-  width: 52%;
+  width: clamp(50%, 720px, 50%);
   box-sizing: border-box;
   font-size: 1.2em;
   line-height: 1.6;
@@ -67,7 +67,7 @@ h1 {
 
 div.btn-time-container {
   margin: 2px auto;
-  width: 52%;
+  width: clamp(50%, 720px, 50%);
   display: flex;
   justify-content: space-between;
   align-items: start;
@@ -194,6 +194,20 @@ article p {
 article h3 {
   color: #00e676;
   margin: 0.5em 0;
+}
+
+::-webkit-scrollbar {
+  background-color: rgba(27, 27, 27, 0);
+  transition: 0.3s ease;
+  width: 0.7em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #707070;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #bdbdbd;
 }
 
 @media (max-width: 600px) {
