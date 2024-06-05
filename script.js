@@ -11,7 +11,7 @@ let falseCharInWordCount = 0;
 let falseWord = 0;
 let trueWord = 0;
 let paragraphCount = 0;
-let hitungMundur = 60;
+let hitungMundur = 1;
 let intervalId;
 
 const typingSpeedMessages = {
@@ -227,4 +227,15 @@ function starto() {
   btn.onclick = restartBtn;
 }
 
+function showWPM() {
+  const dialog = document.getElementById("abt-wpm");
+  dialog.showModal();
+  dialog.children[0].focus();
+}
+
+function hideWPM() {
+  document.getElementById("abt-wpm").close();
+}
+
 btn.onclick = starto;
+// resultDialog.showModal();

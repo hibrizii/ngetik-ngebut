@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ngetikcepat.com</title>
+    <title>ngetikngebut.com</title>
     <link rel="icon" type="image/x-icon" href="img/logo.png" />
     <link href="style.css" rel="stylesheet" />
   </head>
@@ -13,7 +13,7 @@
         <div class="logo">
           <img src="img/logo.png" alt="logo" />
         </div>
-        <h1 class="nama-website"><span>ngetik</span>cepat.com</h1>
+        <h1 class="nama-website"><span>ngetik</span>ngebut.com</h1>
       </header>
       <div class="paragraph">
         langit biru cerah awan putih berarak perlahan mentari bersinar hangat
@@ -28,9 +28,9 @@
         <button class="btn ctr">Start</button>
         <div class="time-wpm-ctr">
           <div class="ctr">Time: <span class="time">00</span></div>
-          <a href="#abt-wpm" class="display-est-wpm ctr">
+          <div class="display-est-wpm ctr shiny-element" onclick="showWPM()">
             <span class="wpm-est">0</span> WPM
-          </a>
+          </div>
         </div>
       </div>
       <dialog id="result-dialog">
@@ -40,35 +40,42 @@
           biar tambah ngebut ngetiknya.
         </p>
         <button class="btn">OKE</button>
-        <a href="#abt-wpm" class="btn wpm-info">apa itu WPM?</a>
+        <a href="#abt-wpm" class="btn wpm-info" onclick="showWPM()"
+          >apa itu WPM?</a
+        >
       </dialog>
-    </section>
-    <section id="abt-wpm" class="about-wpm ss">
-      <h1 class="article-title">WPM <span>(Words per Minutes)</span></h1>
-      <article>
-        <p>
-          WPM, singkatan dari "words per minute" atau kata per menit, adalah
-          satuan ukuran yang umum digunakan untuk mengukur kecepatan mengetik.
-          Satuan ini menunjukkan jumlah kata yang dapat diproses dalam satu
-          menit.
-        </p>
+      <dialog id="abt-wpm" class="about-wpm">
+        <div class="x" onclick="hideWPM()">x</div>
+        <div class="article">
+          <h1 class="article-title">WPM <span>(Words per Minutes)</span></h1>
+          <article>
+            <p>
+              WPM, singkatan dari "words per minute" atau kata per menit, adalah
+              satuan ukuran yang umum digunakan untuk mengukur kecepatan
+              mengetik. Satuan ini menunjukkan jumlah kata yang dapat diproses
+              dalam satu menit.
+            </p>
 
-        <h2>Kategori:</h2>
+            <h2>Kategori:</h2>
 
-        <h3>10-20 WPM:</h3>
-        Si Santuy Masih nyari-nyari huruf di keyboard? Santai aja, bro! Semua
-        orang pasti mulai dari nol. Terus gas latihan biar makin GG.
-        <h3>21-40 WPM:</h3>
-        Si Standar Ini kecepatan standar kebanyakan orang. Nggak terlalu lemot,
-        nggak terlalu ngebut. Cukup lah buat ngetik tugas atau chatingan.
-        <h3>41-60 WPM:</h3>
-        Si Gesit Nah, kalau udah di level ini, jari-jarimu udah mulai lincah
-        nih. Ngetik tugas atau email pasti cepet kelarnya. Keren!
-        <h3>61-80 WPM:</h3>
-        Si Pro Ini levelnya para pro player. Kecepatan ngetiknya udah kayak
-        kesurupan setan ngebut! Biasanya yang kerjaannya banyak ngetik, kayak
-        content creator atau penulis, ada di level ini.
-      </article>
+            <h3>10-20 WPM:</h3>
+            Si Santuy Masih nyari-nyari huruf di keyboard? Santai aja, bro!
+            Semua orang pasti mulai dari nol. Terus gas latihan biar makin GG.
+            <h3>21-40 WPM:</h3>
+            Si Standar Ini kecepatan standar kebanyakan orang. Nggak terlalu
+            lemot, nggak terlalu ngebut. Cukup lah buat ngetik tugas atau
+            chatingan.
+            <h3>41-60 WPM:</h3>
+            Si Gesit Nah, kalau udah di level ini, jari-jarimu udah mulai lincah
+            nih. Ngetik tugas atau email pasti cepet kelarnya. Keren!
+            <h3>61-80 WPM:</h3>
+            Si Pro Ini levelnya para pro player. Kecepatan ngetiknya udah kayak
+            kesurupan setan ngebut! Biasanya yang kerjaannya banyak ngetik,
+            kayak content creator atau penulis, ada di level ini.
+          </article>
+        </div>
+        <div class="btn" onclick="hideWPM()">Tutup</div>
+      </dialog>
     </section>
     <script src="script.js"></script>
     <script src="ui.js"></script>
