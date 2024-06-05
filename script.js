@@ -11,7 +11,7 @@ let falseCharInWordCount = 0;
 let falseWord = 0;
 let trueWord = 0;
 let paragraphCount = 0;
-let hitungMundur = 1;
+let hitungMundur = 60;
 let intervalId;
 
 const typingSpeedMessages = {
