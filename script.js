@@ -238,4 +238,3 @@ function hideWPM() {
 }
 
 btn.onclick = starto;
-// resultDialog.showModal();

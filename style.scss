@@ -15,12 +15,8 @@ body {
   color: #f0f0f0;
 }
 
-section.main {
-  height: 100%;
-}
-
 header {
-  margin: 2em auto 0;
+  margin: 3em auto 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,6 +33,7 @@ header {
     border-radius: 50%;
   }
   h1.nama-website {
+    font-size: 1.7em;
     font-style: italic;
     span {
       color: #ffffff;
@@ -224,6 +221,76 @@ h1.wpm-result {
   z-index: 1;
 }
 
+i.toggle-btn {
+  transition: all 0.5s ease-in-out;
+  font-size: 1.4em;
+  cursor: pointer;
+  position: fixed;
+  top: 1.2em;
+  left: 1.2em;
+}
+
+.open {
+  left: 0;
+}
+
+.hidden-burger {
+  transform: translateX(-2.5em);
+}
+
+footer {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  position: fixed;
+  height: 92%;
+  top: 1.5em;
+  left: -250px;
+  border-radius: 0 15px 15px 0;
+  background: #00000048;
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  p {
+    font-size: 0.8em;
+    height: 20%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+  }
+  div.footer-icons {
+    border-top-left-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.247);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  a {
+    transition: all 0.2s ease-in;
+    &:hover {
+      transform: translateY(-1.8px);
+    }
+    &#google:hover {
+      color: #db4437;
+    }
+    &#ig:hover {
+      color: #833ab4;
+    }
+    &#git:hover {
+      color: #000000;
+    }
+    &#linkd:hover {
+      color: #0077b5;
+    }
+  }
+}
 ::-webkit-scrollbar {
   background-color: #1b1b1b00;
   transition: 0.3s ease;

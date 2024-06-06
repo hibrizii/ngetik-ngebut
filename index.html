@@ -4,35 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ngetikngebut.com</title>
+    <script
+      src="https://kit.fontawesome.com/cedd60cf88.js"
+      crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="img/logo.png" />
     <link href="style.css" rel="stylesheet" />
   </head>
   <body>
+    <header>
+      <div class="logo">
+        <img src="img/logo.png" alt="logo" />
+      </div>
+      <h1 class="nama-website"><span>ngetik</span>ngebut.com</h1>
+    </header>
+    <i class="fa-solid fa-bars toggle-btn"></i>
     <section id="main-sec" class="main">
-      <header>
-        <div class="logo">
-          <img src="img/logo.png" alt="logo" />
-        </div>
-        <h1 class="nama-website"><span>ngetik</span>ngebut.com</h1>
-      </header>
-      <div class="paragraph">
-        langit biru cerah awan putih berarak perlahan mentari bersinar hangat
-        menyinari bumi hijau hamparan sawah luas terbentang indah dihiasi
-        pepohonan rindang suara kicau burung terdengar merdu menambah suasana
-        damai angin sepoi sepoi bertiup lembut menggoyangkan dedaunan sungai
-        jernih mengalir tenang memantulkan cahaya mentari kehidupan alam begitu
-        indah menenangkan hati burung camar terbang bebas di pantai pasir putih
-        ombak bergulung riang
-      </div>
-      <div class="btn-time-container">
-        <button class="btn ctr">Start</button>
-        <div class="time-wpm-ctr">
-          <div class="ctr">Time: <span class="time">00</span></div>
-          <div class="display-est-wpm ctr shiny-element" onclick="showWPM()">
-            <span class="wpm-est">0</span> WPM
-          </div>
-        </div>
-      </div>
       <dialog id="result-dialog">
         <p class="result-text">
           Kecepatan Ngetikmu: ${trueWord} WPM! <br />
@@ -45,7 +31,7 @@
         >
       </dialog>
       <dialog id="abt-wpm" class="about-wpm">
-        <div class="x" onclick="hideWPM()">x</div>
+        <i class="fa-solid fa-xmark x" onclick="hideWPM()"></i>
         <div class="article">
           <h1 class="article-title">WPM <span>(Words per Minutes)</span></h1>
           <article>
@@ -76,7 +62,45 @@
         </div>
         <div class="btn" onclick="hideWPM()">Tutup</div>
       </dialog>
+      <div class="paragraph">
+        langit biru cerah awan putih berarak perlahan mentari bersinar hangat
+        menyinari bumi hijau hamparan sawah luas terbentang indah dihiasi
+        pepohonan rindang suara kicau burung terdengar merdu menambah suasana
+        damai angin sepoi sepoi bertiup lembut menggoyangkan dedaunan sungai
+        jernih mengalir tenang memantulkan cahaya mentari kehidupan alam begitu
+        indah menenangkan hati burung camar terbang bebas di pantai pasir putih
+        ombak bergulung riang
+      </div>
+      <div class="btn-time-container">
+        <button class="btn ctr">Start</button>
+        <div class="time-wpm-ctr">
+          <div class="ctr">Time: <span class="time">00</span></div>
+          <div class="display-est-wpm ctr" onclick="showWPM()">
+            <span class="wpm-est">0</span> WPM
+          </div>
+        </div>
+      </div>
     </section>
+    <footer>
+      <p>connect with me:</p>
+      <div class="footer-icons">
+        <a href="mailto:dqxhibrizii@gmail.com" id="google" target="_blank"
+          ><i class="fa-brands fa-google"></i
+        ></a>
+        <a href="https://instagram.com/hhibrizii" id="ig" target="_blank"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+        <a href="https://github.com/hibrizii" target="_blank" id="git"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/hibbatullah-hibrizii-59685b221/"
+          target="_blank"
+          id="linkd"
+          ><i class="fa-brands fa-linkedin"></i
+        ></a>
+      </div>
+    </footer>
     <script src="script.js"></script>
     <script src="ui.js"></script>
   </body>
