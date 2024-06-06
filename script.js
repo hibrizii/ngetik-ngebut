@@ -230,7 +230,6 @@ function starto() {
 function showWPM() {
   const dialog = document.getElementById("abt-wpm");
   dialog.showModal();
-  dialog.children[0].focus();
 }
 
 function hideWPM() {

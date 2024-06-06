@@ -1,5 +1,5 @@
 const burger = document.querySelector("i.toggle-btn");
-const navbar = document.querySelector("footer");
+const navbar = document.querySelector("nav");
 
 function toggleNav() {
   burger.classList.toggle("hidden-burger");

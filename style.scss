@@ -48,6 +48,10 @@ h1 {
   text-shadow: 0 0 5px #00e676;
 }
 
+section.main {
+  margin-top: 24vh;
+}
+
 .paragraph {
   margin: 7em auto 5px;
   width: clamp(50%, 720px, 50%);
@@ -238,38 +242,54 @@ i.toggle-btn {
   transform: translateX(-2.5em);
 }
 
-footer {
-  overflow: hidden;
-  transition: all 0.5s ease-in-out;
+nav {
   position: fixed;
-  height: 92%;
   top: 1.5em;
   left: -250px;
+  overflow: hidden;
+  background: #00000067;
+  transition: all 0.5s ease-in-out;
+  height: 92%;
+  width: 210px;
   border-radius: 0 15px 15px 0;
-  background: #00000048;
-  width: 200px;
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  p {
-    font-size: 0.8em;
-    height: 20%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    margin-left: 1em;
+  padding-top: 10px;
+  .menus .menu {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 5px 0;
+    padding: 1em;
   }
-  div.footer-icons {
-    border-top-left-radius: 15px;
+  .menus .menu:hover {
     background-color: rgba(255, 255, 255, 0.247);
+  }
+  div.foot {
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 20%;
+    height: 12%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
-    a {
-      color: inherit;
-      text-decoration: none;
+    p {
+      font-size: 0.7em;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      margin-left: 1em;
+    }
+    div.footer-icons {
+      height: 100%;
+      width: 80%;
+      border-top-left-radius: 15px;
+      background-color: rgba(255, 255, 255, 0.247);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      a {
+        font-size: 1em;
+        color: inherit;
+        text-decoration: none;
+      }
     }
   }
   a {
@@ -290,6 +310,9 @@ footer {
       color: #0077b5;
     }
   }
+}
+nav {
+  backdrop-filter: blur(5px); /* Sesuaikan nilai blur sesuai keinginan */
 }
 ::-webkit-scrollbar {
   background-color: #1b1b1b00;
