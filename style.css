@@ -182,7 +182,7 @@ div.button-result .btn.wpm-info:hover {
 
 .about-wpm {
   position: relative;
-  background-color: linear-gradient(135deg, hsla(0, 0%, 50%, 0.7), hsla(60, 1%, 58%, 0.7));
+  background-color: linear-gradient(135deg, hsla(0, 0%, 50%, 0.4), hsla(60, 1%, 58%, 0.4));
   text-align: left;
   box-sizing: border-box;
   padding: 2em clamp(20px, 4em, 4rem);
@@ -266,6 +266,7 @@ nav {
   padding-top: 10px;
 }
 nav .menus .menu {
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin: 5px 0;
@@ -310,11 +311,11 @@ nav a {
 nav a:hover {
   transform: translateY(-1.8px);
 }
-nav a#google:hover {
-  color: #db4437;
-}
 nav a#ig:hover {
   color: #833ab4;
+}
+nav a#tiktok:hover {
+  color: #ee1d52;
 }
 nav a#git:hover {
   color: #000000;

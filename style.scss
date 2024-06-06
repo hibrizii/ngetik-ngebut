@@ -187,8 +187,8 @@ div.button-result {
   position: relative;
   background-color: linear-gradient(
     135deg,
-    hsla(0, 0%, 50%, 0.7),
-    hsla(60, 1%, 58%, 0.7)
+    hsla(0, 0%, 50%, 0.4),
+    hsla(60, 1%, 58%, 0.4)
   );
   text-align: left;
   box-sizing: border-box;
@@ -275,6 +275,7 @@ nav {
   border-radius: 0 15px 15px 0;
   padding-top: 10px;
   .menus .menu {
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     margin: 5px 0;
@@ -318,11 +319,11 @@ nav {
     &:hover {
       transform: translateY(-1.8px);
     }
-    &#google:hover {
-      color: #db4437;
-    }
     &#ig:hover {
       color: #833ab4;
+    }
+    &#tiktok:hover {
+      color: #ee1d52;
     }
     &#git:hover {
       color: #000000;
