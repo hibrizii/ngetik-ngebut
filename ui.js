@@ -1,5 +1,22 @@
 const burger = document.querySelector("i.toggle-btn");
 const navbar = document.querySelector("nav");
+const closeBtns = document.getElementsByClassName("close");
+
+function showDialog(str) {
+  const dialog = document.querySelector(str);
+  dialog.showModal();
+}
+
+Array.from(closeBtns).forEach((node) =>
+  node.addEventListener("click", (event) => {
+    event.target.parentNode.addEventListener("click", (parent) => {
+      parent.stopPropagation();
+    });
+    console.log(event.target);
+    console.log(event.target.parentNode);
+    event.target.parentNode.close();
+  })
+);
 
 function toggleNav() {
   burger.classList.toggle("hidden-burger");

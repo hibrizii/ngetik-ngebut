@@ -4,6 +4,7 @@ const words = paragraph.innerHTML.split(" ");
 const detik = document.querySelector(".time");
 const resultDialog = document.querySelector("dialog#result-dialog");
 const wpmEstDisplay = document.querySelector(".wpm-est");
+
 let wordsFinished = 0;
 let currentWord = 0;
 let charCount = 0;
@@ -227,13 +228,8 @@ function starto() {
   btn.onclick = restartBtn;
 }
 
-function showWPM() {
-  const dialog = document.getElementById("abt-wpm");
-  dialog.showModal();
-}
-
-function hideWPM() {
-  document.getElementById("abt-wpm").close();
-}
+wpmEstDisplay.parentNode.addEventListener("click", () => {
+  if (hitungMundur <= 1) gameResult();
+});
 
 btn.onclick = starto;
