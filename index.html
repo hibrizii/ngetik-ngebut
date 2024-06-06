@@ -64,7 +64,7 @@
         </div>
         <div class="btn close">Tutup</div>
       </dialog>
-      <dialog id="tutorial">
+      <dialog id="tutorial" class="txt">
         <p>
           Klik tombol startnya, terus tinggal ketik aja sesuai kalimat yang
           disediain.<br />
@@ -78,6 +78,13 @@
           Oh iya, saat lagi ngetik, kamu juga bisa
           <span>pantau WPM-mu</span> melalui live display yang ada di bawah
           timer ya!
+        </p>
+        <div class="btn close">oke</div>
+      </dialog>
+      <dialog id="contribution" class="txt">
+        <p>
+          Anda bisa berkontribusi untuk website ini dengan memberikan saran dan
+          kritik ke kontak yang saya cantumkan di bawah menu
         </p>
         <div class="btn close">oke</div>
       </dialog>
@@ -104,7 +111,9 @@
       <div class="menus">
         <div class="menu" onclick="showDialog('#tutorial')">Cara Main</div>
         <div class="menu" onclick="showDialog('#abt-wpm')">Apa itu WPM?</div>
-        <div class="menu">Contribution</div>
+        <div class="menu" onclick="showDialog('#contribution')">
+          Contribution
+        </div>
       </div>
       <div class="foot">
         <p>Connect with Me:</p>

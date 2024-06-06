@@ -225,14 +225,15 @@ div.button-result .btn.wpm-info:hover {
   z-index: 1;
 }
 
-#tutorial {
+dialog.txt {
+  padding: 1.7em;
   text-align: left;
 }
-#tutorial p span {
+dialog.txt p span {
   color: #00e676;
   font-weight: bold;
 }
-#tutorial .btn {
+dialog.txt .btn {
   margin: 1em auto 0;
 }
 
