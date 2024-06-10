@@ -149,6 +149,19 @@ dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.8); /* Latar belakang lebih gelap */
 }
 
+dialog.mobile-msg {
+  width: 80%;
+  h2 {
+    font-size: 1.1em;
+    color: #00c85d;
+    text-shadow: none;
+  }
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.9); /* Latar belakang lebih gelap */
+}
+
 .result-text {
   margin-bottom: 20px;
 }

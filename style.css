@@ -127,11 +127,7 @@ div.btn-time-container {
 
 /* Style untuk dialog hasil */
 dialog {
-  background: linear-gradient(
-    135deg,
-    #222,
-    #444
-  ); /* Gradien yang sama dengan elemen lainnya */
+  background: linear-gradient(135deg, #222, #444); /* Gradien yang sama dengan elemen lainnya */
   color: #f0f0f0; /* Warna teks yang sama dengan body */
   border: none;
   border-radius: 10px;
@@ -148,6 +144,19 @@ dialog {
 
 dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.8); /* Latar belakang lebih gelap */
+}
+
+dialog.mobile-msg {
+  width: 80%;
+}
+dialog.mobile-msg h2 {
+  font-size: 1.1em;
+  color: #00c85d;
+  text-shadow: none;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.9); /* Latar belakang lebih gelap */
 }
 
 .result-text {
@@ -186,11 +195,7 @@ div.button-result .btn.wpm-info:hover {
 
 .about-wpm {
   position: relative;
-  background-color: linear-gradient(
-    135deg,
-    hsla(0, 0%, 50%, 0.4),
-    hsla(60, 1%, 58%, 0.4)
-  );
+  background-color: linear-gradient(135deg, hsla(0, 0%, 50%, 0.4), hsla(60, 1%, 58%, 0.4));
   text-align: left;
   box-sizing: border-box;
   padding: 2em clamp(20px, 4em, 4rem);
