@@ -1,8 +1,10 @@
-const isMobile = require("is-mobile");
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+}
 const mobileMsg = document.querySelector("dialog.mobile-msg");
 if (isMobile()) mobileMsg.showModal();
-
-console.log(isMobile());
 
 const burger = document.querySelector("i.toggle-btn");
 const navbar = document.querySelector("nav");
