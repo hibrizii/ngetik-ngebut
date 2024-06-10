@@ -1,3 +1,9 @@
+const isMobile = require("is-mobile");
+const mobileMsg = document.querySelector("dialog.mobile-msg");
+if (isMobile()) mobileMsg.showModal();
+
+console.log(isMobile());
+
 const burger = document.querySelector("i.toggle-btn");
 const navbar = document.querySelector("nav");
 const closeBtns = document.getElementsByClassName("close");

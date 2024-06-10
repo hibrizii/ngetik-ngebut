@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "sass": "^1.77.4"
+  },
+  "dependencies": {
+    "is-mobile": "^4.0.0"
   }
 }
